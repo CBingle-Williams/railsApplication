@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/appointments">Appointments <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/pilots/new">New Pilot</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<p id="notice"><%= notice %></p>
+<h1>Pilots</h1>
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <% @pilots.each do |pilot| %>
+      <tr>
+        <td><%= pilot.name %></td>
+        <td><%= link_to 'Show', pilot %></td>
+        <td><%= link_to 'Edit', edit_pilot_path(pilot) %></td>
+        
+        <% if pilot.appointments.length != 0 %>
+          <td>In Use</td>
+        <% else %>
+          <td><%= link_to 'Destroy', pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%#= link_to 'New Pilot', new_pilot_path %>
+<%#= link_to 'Appointments', appointments_path %>

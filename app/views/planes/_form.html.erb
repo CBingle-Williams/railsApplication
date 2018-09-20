@@ -1,0 +1,35 @@
+<%= form_with(model: plane, local: true) do |form| %>
+  <% if plane.errors.any? %>
+    <% plane.errors.full_messages.each do |msg| %>
+      <div class='alert alert-danger'><%= msg %></div>
+    <% end %>
+  <% end %>
+  <div class="field">
+    <%= form.label :model %><br>
+    <%= form.text_field :model, {:class => 'form-control'} %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :registration %><br>
+    <%= form.text_field :registration, {:class => 'form-control'} %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :manufacturer %><br>
+    <%= form.text_field :manufacturer, {:class => 'form-control'} %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :age %><br>
+    <%= form.text_field :age, {:class => 'form-control'} %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :range %><br>
+    <%= form.text_field :range, {:class => 'form-control'} %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit({:class => 'btn btn-primary'}) %>
+  </div>
+<% end %>
